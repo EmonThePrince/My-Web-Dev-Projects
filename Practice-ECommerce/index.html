@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Shop</title>
+    <link rel="stylesheet" href="input.css">
+</head>
+<body class="body h-[200vh] relative" id="body">
+    <header class="header max-lg:justify-between h-16 w-[100%] bg-blue-300 flex justify-around items-center fixed header-visible transition-all duration-[.4s] shadow-lg" id="header">
+        <div class="lg:hidden cursor-pointer menu-bar h-9 w-9  ml-3 flex-col justify items-center" id="ham-menu">
+            <div class=" w-[100%] h-[15%] bg-black rounded-xl my-1 " id="up"></div>
+            <div class="w-[100%] h-[15%] bg-black rounded-xl my-1 " id="mid"></div>
+            <div class="w-[100%] h-[15%] bg-black rounded-xl my-1 " id="down"></div>
+        </div>
+        <nav class="nav h-[80%] w-[33%] cursor-pointer 
+        max-lg:absolute
+        max-lg:h-[500px]
+        max-lg:w-[25%]
+        max-lg:top-16
+        max-lg:left-[-50%]
+        max-lg:bg-blue-300
+        max-lg:shadow-lg
+        transition-left
+        duration-[.25s]
+        "
+        id="nav">
+            <ul class="h-[100%] flex justify-center items-center gap-x-[max(1rem,7%)] text-xl
+            max-lg:flex-col
+            max-lg:justify-around">
+                <li class="nav-hover
+                 max-lg:h-[20%] 
+                 max-lg:bg-blue-400
+                 max-lg:w-[60%]
+                 max-lg:flex
+                 max-lg:justify-center
+                 max-lg:items-center
+                 max-lg:shadow-md
+                 max-lg:rounded-xl
+                 max-lg:hover:border-b-0
+                 max-lg:hover:bg-blue-800
+                 max-lg:hover:text-white
+                 max-lg:hover:text-[21px]
+                 transition-colors
+                 duration-100">Home</li>
+                <li class="nav-hover
+                max-lg:h-[20%] 
+                 max-lg:bg-blue-400
+                 max-lg:w-[60%]
+                 max-lg:flex
+                 max-lg:justify-center
+                 max-lg:items-center
+                 max-lg:shadow-md
+                 max-lg:rounded-xl
+                 max-lg:hover:border-b-0
+                 max-lg:hover:bg-blue-800
+                 max-lg:hover:text-white
+                 max-lg:hover:text-[21px]
+                 transition-colors
+                 duration-100" id="Products-nav" onmouseover="showNav()" onmouseout="notShowNav()">Products</li>
+                <li class="nav-hover
+                max-lg:h-[20%] 
+                 max-lg:bg-blue-400
+                 max-lg:w-[60%]
+                 max-lg:flex
+                 max-lg:justify-center
+                 max-lg:items-center
+                 max-lg:shadow-md
+                 max-lg:rounded-xl
+                 max-lg:hover:border-b-0
+                 max-lg:hover:bg-blue-800
+                 max-lg:hover:text-[21px]
+                 max-lg:hover:text-white
+                 transition-colors
+                 duration-100 whitespace-nowrap">Contact Us</li>
+                <li class="nav-hover
+                max-lg:h-[20%] 
+                 max-lg:bg-blue-400
+                 max-lg:w-[60%]
+                 max-lg:flex
+                 max-lg:justify-center
+                 max-lg:items-center
+                 max-lg:shadow-md
+                 max-lg:rounded-xl
+                 max-lg:hover:border-b-0
+                 max-lg:hover:bg-blue-800
+                 max-lg:hover:text-[21px]
+                 max-lg:hover:text-white
+                 transition-colors
+                 duration-100 whitespace-nowrap">About Us</li>
+            </ul>
+        </nav>
+        <div class="logo text-2xl font-serif font-bold tracking-widest cursor-pointer"><h1> <a href="#">SHOP</a></h1></div>
+        <div class="mr-3 right-nav h-[80%] w-[33%] flex justify-end items-center gap-10 cursor-pointer max-lg:w-[10%]">
+            <div class="max-lg:hidden w-[100%] flex justify-end gap-10 "><p class="inline-block text-lg tracking-wide hover:text-regal-blue hover:text-xl">Technology</p>
+                <p class="inline-block text-lg hover:text-regal-blue hover:text-xl ">FAQ</p></div>
+            
+            <img src="icons/login.png" alt="" class="h-[50%] hover:h-[55%]">
+            <img src="icons/shop.png" id="cart-button" class="h-[50%] mr-2 hover:h-[55%]">
+        </div>
+        <div class="transition-all duration-300 my-cart bg-gray-100 absolute top-16 right-[-50%] h-[100vh] w-[30%] overflow-y-scroll" id="my-cart">
+            <div id="product-cart">
+                
+            </div>
+            
+            
+            <div class="my-2 w-[100%]">
+                <div class="border-t-4 text-center text-xl" >Total: $<span id="total">0</span></div>
+                <div class="flex justify-center my-2 ">
+                <button type="submit" class="bg-yellow-500 p-1 rounded-md shadow-md hover:bg-yellow-300" onclick="orderPlaced()"> Place Order</button></div>
+            </div>
+        </div>
+
+        
+    </header>
+    
+    <div onmouseover="showNav()" onmouseout="notShowNav()" class="transition-all duration-400 nav-detail drop-shadow-md
+    fixed h-[50%] w-[80%] bg-gray-50 top-16 left-[5%] invisible rounded-b-md flex justify-around items-center" id="nav-detail">
+    <div class="product-container relative">
+        <img src="images/Product1.jpg" class="w-[80%] mt-2 rounded-md drop-shadow">
+        <div class="product-title mt-3 text-xl text-center">Indian Silk</div>
+        <div class="stock">In Stock: <span>5</span></div>
+        <div class="product-price-sell flex justify-around w-[100%] absolute bottom-2">
+            <div>Price: $19.84</div>
+            <div class="add-to-cart"><img src="icons/shop.png" alt="" class="h-5 hover:h-6"> </div>
+        </div>
+    </div>
+    <div class="product-container relative">
+        <img src="images/product2.jpg" class="w-[80%] mt-2 rounded-md drop-shadow">
+        <div class="product-title mt-3 text-xl text-center">Kanjivaram pure silk</div>
+        <div class="stock">In Stock: <span>5</span></div>
+        <div class="product-price-sell flex justify-around w-[100%] absolute bottom-2">
+            <div>Price: $40.66</div>
+            <div class="add-to-cart"><img src="icons/shop.png" alt="" class="h-5 hover:h-6"> </div>
+        </div>
+    </div>
+    <div class="product-container relative">
+        <img src="images/product3.jpg" class="w-[65%] mt-2 rounded-md drop-shadow">
+        <div class="product-title mt-3 text-xl text-center">Standerd Silk</div>
+        <div class="stock">In Stock: <span>5</span></div>
+        <div class="product-price-sell flex justify-around w-[100%] absolute bottom-2">
+            <div>Price: $25.74</div>
+            <div class="add-to-cart"><img src="icons/shop.png" alt="" class="h-5 hover:h-6"> </div>
+        </div>
+    </div>
+    <div class="product-container relative">
+        <img src="images/product4.jpg" class="w-[65%] mt-2 rounded-md drop-shadow">
+        <div class="product-title mt-3 text-xl text-center">Gicha Pallu Saree</div>
+        <div class="stock">In Stock: <span>5</span></div>
+        <div class="product-price-sell flex justify-around w-[100%] absolute bottom-2">
+            <div>Price: $35.48</div>
+            <div class="add-to-cart"><img src="icons/shop.png" alt="" class="h-5 hover:h-6"> </div>
+        </div>
+    </div>
+    </div>
+    <main class="main">
+        
+    </main>
+    <footer class="footer">
+
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

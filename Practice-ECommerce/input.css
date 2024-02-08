@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.header-visible{
+    top: 0px;
+}
+.header-invisible{
+    top: -20%;
+}
+
+.nav-hover{
+    padding: .3rem;
+}
+
+.nav-hover:hover{
+    color:blueviolet;
+    border-style: solid;
+    border-bottom-width: 4px;
+    border-color: rgb(62, 11, 111);
+    border-radius: 10% ;
+}
+
+.product-container{
+    height: 90%;
+    width: 20%;
+    background-color: rgb(240, 234, 234);
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    border-radius: 5%;
+    cursor: pointer;
+}
+.product-container:hover{
+    height: 91%;
+    width: 21%;
+}
+
+.up{
+    /* position: absolute; */
+    width: 2.25rem;
+    height: calc(2.25rem*.15);
+    transform: translateY(1.125rem) rotateZ(45deg) scaleX(.8);  
+    transition: all;
+    transition-duration: .15s;  
+}
+.mid{
+    visibility: hidden;
+    transition: all;
+    transition-duration: .05s;
+}
+.down{
+    /* position: absolute; */
+    transition: all;
+    transition-duration: .15s;
+    width: 2.25rem;
+    height: calc(2.25rem*.15);
+    transform: rotateZ(-45deg) scaleX(.8);
+}
